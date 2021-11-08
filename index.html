@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>Yew Zi Hon | EP1001</title>
+        <link rel="stylesheet" type="text/css" href="styles/style.css"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"><!-- adding google fonts-->
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Patrick+Hand&display=swap" rel="stylesheet">
+        <link href="styles/fontawesome/css/all.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+    <script>
+    
+    
+    </script>
+	<body>
+        <div id="container">
+            <div id= "header">
+                <h1>Zi Hon's website</h1>
+                <p> <script>
+                    var hello = ["Hello!", "Greetings!", "Hey there!", "Howdy!", "Hi there.", "It's nice to meet you.", "Hey, good to see you!"];
+                    document.write(hello[Math.floor(Math.random()*hello.length)]);
+                    </script></p>
+            </div>
+            <div>
+                <input type="checkbox" id="btn" hidden>
+                <label for="btn" id="icon">
+                <i class="fas fa-3x fa-bars" style="padding-left:3px;padding-top:1px;"></i></label>
+                <nav id="nav">
+                    <ul id="navlinks">
+                        <li class="firstLink"><a href="index.html"><h1 class="currentLink"> Home</h1></a><br></li>
+                        <li><a href="about.html"><h1> About</h1></a><br></li>
+                        <li><a href="elecProd.html"><h1> Electronics Production</h1></a><br></li>
+                        <li><a href="elecDes.html"><h1> Electronics Design</h1></a><br></li>
+                        <li><a href="2Dcnc.html"><h1>2D CNC</h1></a><br></li>
+                        <li><a href="embProg.html"><h1> Embedded Programming</h1></a><br></li>
+                        <li><a href="moldCast.html"><h1> Molding and Casting</h1></a><br></li>
+                        <li><a href="3Dcnc.html"><h1> 3D CNC</h1></a><br></li>
+                        <li><a href="interface.html"><h1> Interface and applications</h1></a><br></li>
+                        <li><a href="finalPro.html"><h1> Final Project</h1></a><br>
+                    </ul>
+                </nav>
+            </div>
+            <div id="content">
+                
+                <div id="main">
+                    <br><br>
+                    <h1>Welcome to my website</h1>
+                    <p>This website is intended to document what I do in my elective, further digital fabrication and prototyping.
+                    This elective module introduces us to PCB design, CNC milling, molding and casting, and goes more in depth on embedded programming.</p>
+                    <br>
+                    <div id="port">
+                            <a href="elecProd.html" class="Slides"><img class="imgslides" src="#" style="width:100%"></a>
+                            <a href="elecDes.html" class="Slides"><img class="imgslides" src="#" style="width:100%"></a>
+                            <a href="2Dcnc.html" class="Slides"><img class="imgslides" src="#" style="width:100%"></a>
+                            <a href="embProg.html" class="Slides"><img class="imgslides" src="#" style="width:100%"></a>
+                            <a href="moldCast.html" class="Slides"><img class="imgslides" src="#" style="width:100%"></a>
+                            <a href="3Dcnc.html" class="Slides"><img class="imgslides" src="#" style="width:100%"></a>
+                            <a href="finalPro.html" class="Slides"><img class="imgslides" src="#" style="width:100%"></a>
+                        
+                            <button class="button slidename selected" onclick="buttonpress(1)">Electronics Production</button> 
+                            <button class="button slidename" onclick="buttonpress(2)">Electronics Design</button> 
+                            <button class="button slidename" onclick="buttonpress(3)">2D CNC</button>
+                            <button class="button slidename" onclick="buttonpress(4)">Embedded Programming</button>
+                            <button class="button slidename" onclick="buttonpress(5)">Molding and Casting</button>
+                            <button class="button slidename" onclick="buttonpress(6)">Interface and applications</button>
+                            <button class="button slidename" onclick="buttonpress(7)">Final Project</button>
+                        </div>
+
+                        <script>
+                            var slideIndex = 0;
+                            var i;
+                            var x = document.getElementsByClassName("Slides");
+                            autoscroll();
+                            function buttonpress(n) {
+                                showDivs(slideIndex = n);
+                            }
+                            function plusDivs(n) {
+                                showDivs(slideIndex += n);
+                            }
+                            function autoscroll() {   
+                                plusDivs(1);
+                                setTimeout(autoscroll, 5000); 
+                            }
+                            function showDivs(n) {
+                                var name = document.getElementsByClassName("slidename");
+                                if (n > x.length) {slideIndex = 1}    
+                                if (n < 1) {slideIndex = x.length}
+                                for (i = 0; i < x.length; i++) {
+                                    x[i].style.display = "none";  
+                                }
+                                for (i = 0; i < name.length; i++) {
+                                    name[i].className = name[i].className.replace(" selected", "");
+                                }
+                                x[slideIndex-1].style.display = "block";  
+                                name[slideIndex-1].className += " selected";
+                            }
+                    </script>
+                </div>
+            </div>
+        <footer id="footer">
+            copyright &copy; 2021 Yew Zi Hon
+        
+        </footer>
+        </div>
+	</body>
+</html>
