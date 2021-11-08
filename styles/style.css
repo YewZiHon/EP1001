@@ -1,0 +1,188 @@
+/*pri---------------------------------------------------------------------------------*/
+*{
+    margin:0px;
+    padding:0px;
+    font-family: 'Josefin Slab', serif;
+    
+}
+html{
+    height: 100%;
+    background-image: url("sand.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+h1,h2,h3,h4,h5,h6{
+    margin:0;
+    font-family: 'Josefin Slab', serif;
+}
+#container{
+    
+    width: 100%;
+    height: 100%;
+    margin-left:auto;
+    margin-right:auto;
+    flex: 1;
+}
+/*pri---------------------------------------------------------------------------------*/
+/*main---------------------------------------------------------------------------------*/
+#header{
+    background-color:darkblue;
+    color:white;
+    text-align:center;
+    padding:10px;
+    font-family: 'Josefin Slab', serif;
+    height:87px;
+        
+}
+#header h1{
+        font-size: 70px;
+}
+#header p{
+    font-size: 25px;
+}
+#content{
+    padding-left:100px;
+    padding-right:100px;
+    padding-bottom:30px;
+    flex:1;
+    min-height: 100%;
+}
+#main{/*content */
+    width:100%;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 25px;
+}
+#main p{
+    width:100%;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 25px;
+}
+p{
+    padding-left:10px;
+    padding-right:10px;
+}
+li{
+    font-family: 'Patrick Hand', cursive;
+}
+/*main---------------------------------------------------------------------------------*/
+/*nav---------------------------------------------------------------------------------*/
+
+#icon{
+    position: absolute;
+    background-color: #dcfffb;
+    color: 	lightblue;
+    height: 49px;
+    width: 50px;
+    z-index: 1000;
+    transition: 0.1s;
+    border-radius: 3px 8px 8px 3px;
+    border-style: solid;
+    border-color:  black;
+}
+#btn:checked ~ #icon{
+    left: 320px;
+}
+#btn:checked ~ #nav{
+    left: 0;
+}
+#nav{
+    position: fixed;
+    height: 100%;
+    width: 320px;
+    overflow: hidden;
+    left: -320px;
+    transition: all 0.3s ease;
+    z-index: 999;
+    
+}
+#navlinks{
+    position: relative;
+    background-color: #ccefeb;
+    height: 100%;
+    list-style: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top:10px;
+}
+#navlinks a{
+    margin-top:10px;
+    text-decoration: none;
+    cursor: pointer;
+    color:orange;
+    text-align: center;
+}
+#navlinks li{
+    border-bottom: 2px solid white;
+    padding-top:10px;
+    padding-bottom: 0px;
+    height:30px;
+}
+#navlinks li:hover{
+    border-color: #0091ff;
+    background-color: #0091ff;
+    border-radius: 20px;
+    color:black;
+    transition: all 0.5s ease;
+} 
+.firstLink{
+    border-top: 2px solid white;
+}
+.currentLink{
+    color: #00C;
+}
+/*nav---------------------------------------------------------------------------------*/
+/*index      */
+.Slides{
+    display:none;
+}
+#port{
+    margin-left:auto;
+    margin-right:auto;
+    max-width:850px;
+    
+}
+.imgslides{
+    max-width:850px;
+    height:487px;
+}
+.button{
+    border:none;
+    font-size: 20px;
+    display:inline-block;
+    padding:8px 16px;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    background-color:inherit;
+    text-align:center;
+    cursor:pointer;
+    white-space:nowrap;
+}
+.selected{
+    color:#fff;
+    background-color:#00c;
+}
+/*index      */
+/*footer---------------------------------------------------------------------------------*/
+#footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    clear:both;
+    text-align: end;
+    background-color: grey;
+    font-family: Helvetica;
+}
+/*footer---------------------------------------------------------------------------------*/
+/*downloads*/
+a:hover img{
+  opacity: 0.5;
+}
