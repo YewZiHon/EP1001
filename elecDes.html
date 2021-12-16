@@ -4,9 +4,9 @@
         <title>Yew Zi Hon | Electronics Design</title>
         <link rel="stylesheet" type="text/css" href="styles/style.css"/>
         <link rel="preconnect" href="https://fonts.gstatic.com"><!-- adding google fonts-->
-        <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Patrick+Hand&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Rubik:wght@300&display=swap" rel="stylesheet">
         <link href="styles/fontawesome/css/all.css" rel="stylesheet">
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
     <script>
     
@@ -40,9 +40,159 @@
                 
                 <div id="main"><br><br>
                     <h1>Electronics Design</h1><br>
-                    <p>
+                    <p>This page will document how PCBs can be deisgned and prototyped.
                     </p><br>
                     <br><hr><br>
+                    <ul>PCB design in Eagel:
+                        <li><a href="#esch">Schametic capture in Eagle</a></li>
+                        <li><a href="#epcb">PCB layout in Eagle</a></li>
+                        <li><a href="#ecam">Toolpath generation with mods</a></li>
+                        <li><a href="#emill">PCB milling</a></li><br>
+                        PCB design in Kicad:
+                        <li><a href="#ksch">Schametic capture in Kicad</a></li>
+                        <li><a href="#kpcb">PCB layout in Kicad</a></li>
+                        <li><a href="#kflatcam">Toolpath generation with Flatcam and milling</a></li>
+                    </ul>
+                    <h2>PCB design in Eagel</h2><br><br>
+                    <h3 id="esch">Schematic capture in Eagle</h3>
+                    <p>In schematic capture parts can be added wit the "Add Part" tool.</p><img src="Assets0/pcbdes/design/t85/s1.JPG">
+                    <p>Parts to be added can be chosen in this menu.</p><img src="Assets0/pcbdes/design/t85/s2.JPG">
+                    <p>Parts can be searched here, '*' is used to search partial names.</p><img src="Assets0/pcbdes/design/t85/s3.JPG">
+                    <p>The part is placed in the schematic.</p><img src="Assets0/pcbdes/design/t85/s4.JPG">
+                    <p>The other parts are placed near to where they will connect to the other components.</p><img src="Assets0/pcbdes/design/t85/s5.JPG">
+                    <p>Labels can be added to reduce the number of wires used and make the schematic easier to read.</p><img src="Assets0/pcbdes/design/t85/s6.JPG">
+                    <p>The labels are placed.</p><img src="Assets0/pcbdes/design/t85/s7.JPG">
+                    <p>Parts can be named.</p><img src="Assets0/pcbdes/design/t85/s8.JPG">
+                    <p>This resistor is named "R1".</p><img src="Assets0/pcbdes/design/t85/s9.JPG">
+                    <p>Values can be assigned to parts.</p><img src="Assets0/pcbdes/design/t85/s10.JPG">
+                    <p>This resistor is assigned a value of 10Kohms.</p><img src="Assets0/pcbdes/design/t85/s11.JPG">
+                    <p>The other connections are made.</p><img src="Assets0/pcbdes/design/t85/s12.JPG">
+                    <p>A new board layout is generated.</p><img src="Assets0/pcbdes/design/t85/s13.JPG">
+                    <br><hr><br>
+                    <h3 id="epcb">PCB layout in Eagle</h3>
+                    <p>The components are place so that the smallest amount of air wires are crossing.</p><img src="Assets0/pcbdes/design/t85/b1.JPG">
+                    <p>Wires are routed with this tool.</p><img src="Assets0/pcbdes/design/t85/b2.JPG">
+                    <p>Trace width can be set here.</p><img src="Assets0/pcbdes/design/t85/b3.JPG">
+                    <p>Traces are being routed.</p><img src="Assets0/pcbdes/design/t85/b4.JPG">
+                    <p>The resulting routed trace is shown here.</p><img src="Assets0/pcbdes/design/t85/b5.JPG">
+                    <p>The copper traces are fully routed.</p><img src="Assets0/pcbdes/design/t85/b6.JPG">
+                    <p>For the board outline a line is used.</p><img src="Assets0/pcbdes/design/t85/b7.JPG">
+                    <p>The line is drawn in the milling layer.</p><img src="Assets0/pcbdes/design/t85/b8.JPG">
+                    <p>"Mitre" is used to fillet the corner.</p><img src="Assets0/pcbdes/design/t85/b9.JPG">
+                    <p>A fillet is selected and a fillet radius is defined.</p><img src="Assets0/pcbdes/design/t85/b10.JPG">
+                    <p>Text can be added to the PCB.</p><img src="Assets0/pcbdes/design/t85/b11.JPG">
+                    <p>Text is defined here.</p><img src="Assets0/pcbdes/design/t85/b12.JPG">
+                    <p>The added text is shown in the PCB layout.</p><img src="Assets0/pcbdes/design/t85/b13.JPG">
+                    <p>This is the final PCB design.</p><img src="Assets0/pcbdes/design/t85/b14.JPG">
+                    <a href="Assets0/pcbdes/design/t85/EP1001_Hello_t85.zip" download >Download Eagle files</a>
+                    <br><hr><br>
+                    <h3 id="ecam">Toolpath generation with mods</h3>
+                    <p>This is the PNG generated for the copper traces.</p><img src="Assets0/pcbdes/cam/t85/FCU_t45_hello.png">
+                    <p>This is the PNG generated for the board outline.</p><img src="Assets0/pcbdes/cam/t85/EDGEcuts.png">
+                    <p>Below is the toolpath generation for the front copper isolation milling.</p><img src="Assets0/pcbdes/cam/t85/c1.JPG">
+                    <p>This is the resulting toolpath.</p><img src="Assets0/pcbdes/cam/t85/c2.JPG">
+                    <p>This is how the toolpath is generated for the board outline.</p><img src="Assets0/pcbdes/cam/t85/c3.JPG">
+                    <a href="Assets0/pcbdes/cam/t85/cam_t85.zip" download >Download CAM files</a>
+                    <br><hr><br>
+                    <h3 id="emill">PCB milling</h3>
+                    <p>The CNC has started cutting the text.</p><img src="Assets0/pcbdes/milling/t85/m1.jpg">
+                    <p>Isolation milling of the traces is being done.</p><img src="Assets0/pcbdes/milling/t85/m2.jpg">
+                    <p>This is the toolpath shown in the CNC controller.</p><img src="Assets0/pcbdes/milling/t85/m3.jpg">
+                    <p>Isolation milling continues.</p><img src="Assets0/pcbdes/milling/t85/m4.jpg">
+                    <p>More isolation milling.</p><img src="Assets0/pcbdes/milling/t85/m5.jpg">
+                    <p>The board outline is being cut.</p><img src="Assets0/pcbdes/milling/t85/m6.jpg">
+                    <p>The milling has been completed.</p><img src="Assets0/pcbdes/milling/t85/m7.jpg">
+                    <p>The PCB has been removed from the CNC, the result is shown here.</p><img src="Assets0/pcbdes/milling/t85/m8.jpg">
+                    <p>Burrs has been removed and the copper is being peeled off.</p><img src="Assets0/pcbdes/milling/t85/m9.jpg">
+                    <p>The PCB has been populated.</p><img src="Assets0/pcbdes/milling/t85/IMG_20211216_163144.jpg">
+                    <br><hr><br>
+                    
+                    <h2>PCB design in Kicad</h2><br><br>
+                    <h3 id="ksch">Schematic capture in Kicad</h3>
+                    <p>Symbol libraries are configured here.</p><img src="Assets0/pcbdes/design/t412/l1.JPG">
+                    <p>The symbol library is added.</p><img src="Assets0/pcbdes/design/t412/l2.JPG">
+                    <p>The footprint library is added.</p><img src="Assets0/pcbdes/design/t412/l3.JPG">
+                    <p>This is the schematic capture in Kicad.</p><img src="Assets0/pcbdes/design/t412/s1.JPG">
+                    <p>Symbols can be placed with this tool.</p><img src="Assets0/pcbdes/design/t412/s2.JPG">
+                    <p>Parts are chosen here. Parts can be searched.</p><img src="Assets0/pcbdes/design/t412/s3.JPG">
+                    <p>The Attiny412 is selected. The schematic symbol can be seen.</p><img src="Assets0/pcbdes/design/t412/s4.JPG">
+                    <p>The other are added and placed close to where they are connected.</p><img src="Assets0/pcbdes/design/t412/s5.JPG">
+                    <p>Wires are placed with this tool.</p><img src="Assets0/pcbdes/design/t412/s6.JPG">
+                    <p>Wires have been placed.</p><img src="Assets0/pcbdes/design/t412/s7.JPG">
+                    <p>Schematic symbols are annotated with this utility.</p><img src="Assets0/pcbdes/design/t412/s8.JPG">
+                    <p>Parameters for annotation are set first.</p><img src="Assets0/pcbdes/design/t412/s9.JPG">
+                    <p>The annotation is successful.</p><img src="Assets0/pcbdes/design/t412/s10.JPG">
+                    <p>Here are the annotated schematic.</p><img src="Assets0/pcbdes/design/t412/s11.JPG">
+                    <p>Electrical rules check (ERC) can be used to check for errors in the design.</p><img src="Assets0/pcbdes/design/t412/s12.JPG">
+                    <p>This is the ERC menu</p><img src="Assets0/pcbdes/design/t412/s13.JPG">
+                    <p>The ERC finished with two warnings and 0 errors. These can be ignored.</p><img src="Assets0/pcbdes/design/t412/s14.JPG">
+                    <p>Footprints can be assigned to symbols here.</p><img src="Assets0/pcbdes/design/t412/s15.JPG">
+                    <p>Footprints are assigned to symbols.</p><img src="Assets0/pcbdes/design/t412/s16.JPG">
+                    <p>A netlist is generated with this tool.</p><img src="Assets0/pcbdes/design/t412/s17.JPG">
+                    <p>Using the default parameters, a netlist is generated.</p><img src="Assets0/pcbdes/design/t412/s18.JPG">
+                    <p>The netlist is saved.</p><img src="Assets0/pcbdes/design/t412/s19.JPG">
+                    <p>A PCB layout is created with "PCBNew".</p><img src="Assets0/pcbdes/design/t412/s20.JPG">
+                    <br><hr><br>
+                    <h3 id="kpcb">PCB layout in Kicad</h3>
+                    <p>The netlist created is loaded now.</p><img src="Assets0/pcbdes/design/t412/p1.JPG">
+                    <p>A netlist file needs to be loaded.</p><img src="Assets0/pcbdes/design/t412/p2.JPG">
+                    <p>The created file is selected here.</p><img src="Assets0/pcbdes/design/t412/p3.JPG">
+                    <p>The selected file is shown here.</p><img src="Assets0/pcbdes/design/t412/p4.JPG">
+                    <p>The loaded parts are placed.</p><img src="Assets0/pcbdes/design/t412/p5.JPG">
+                    <p>Parts are placed so that the least number of wires cross.</p><img src="Assets0/pcbdes/design/t412/p6.JPG">
+                    <p>Trace widths are set here from this dropdown.</p><img src="Assets0/pcbdes/design/t412/p7.JPG">
+                    <p>Trace widths and spacings are defined first.</p><img src="Assets0/pcbdes/design/t412/p8.JPG">
+                    <p>The current clearances and widths are too small.</p><img src="Assets0/pcbdes/design/t412/p9.JPG">
+                    <p>Design rules are set here.</p><img src="Assets0/pcbdes/design/t412/p10.JPG">
+                    <p>More track widths can be defined here.</p><img src="Assets0/pcbdes/design/t412/p11.JPG">
+                    <p>Another trace width of 1mm is added.</p><img src="Assets0/pcbdes/design/t412/p12.JPG">
+                    <p>Traces are routed with this tool, highlighted in blue.</p><img src="Assets0/pcbdes/design/t412/p13.JPG">
+                    <p>1mm trace width is selected.</p><img src="Assets0/pcbdes/design/t412/p14.JPG">
+                    <p>The traces that can be routed with thicker traces are routed.</p><img src="Assets0/pcbdes/design/t412/p15.JPG">
+                    <p>This is the completed trace routing for one trace.</p><img src="Assets0/pcbdes/design/t412/p16.JPG">
+                    <p>Thinner traces are being routed with 0.8mm trace width.</p><img src="Assets0/pcbdes/design/t412/p17.JPG">
+                    <p>The other copper traces are routed.</p><img src="Assets0/pcbdes/design/t412/p18.JPG">
+                    <p>This is the completed copper traces.</p><img src="Assets0/pcbdes/design/t412/p19.JPG">
+                    <p>The Edge cuts layer is selected.</p><img src="Assets0/pcbdes/design/t412/p20.JPG">
+                    <p>"Add graphic line is used to add the board outline."</p><img src="Assets0/pcbdes/design/t412/p21.JPG">
+                    <p>A line is drawn.</p><img src="Assets0/pcbdes/design/t412/p22.JPG">
+                    <p>To edit the line segment right click>>properties.</p><img src="Assets0/pcbdes/design/t412/p23.JPG">
+                    <p>This is the current line segment parameters. They need to be changed.</p><img src="Assets0/pcbdes/design/t412/p24.JPG">
+                    <p>The line segments parameters are updated.</p><img src="Assets0/pcbdes/design/t412/p25.JPG">
+                    <p>This is the PCB layout now with the copper traces and the board outline.</p><img src="Assets0/pcbdes/design/t412/p26.JPG">
+                    <p>"Add graphic arc" is used to add a fillet.</p><img src="Assets0/pcbdes/design/t412/p27.JPG">
+                    <p>An arc segment is drawn.</p><img src="Assets0/pcbdes/design/t412/p28.JPG">
+                    <p>The current parameters are shown, they need to be changed.</p><img src="Assets0/pcbdes/design/t412/p29.JPG">
+                    <p>Parameters for the arc are set here.</p><img src="Assets0/pcbdes/design/t412/p30.JPG">
+                    <p>Line segments are shortened.</p><img src="Assets0/pcbdes/design/t412/p31.JPG">
+                    <p>The lines are shortened so they coincide with the arc end points.</p><img src="Assets0/pcbdes/design/t412/p32.JPG">
+                    <p>This is the completed PCB layout.</p><img src="Assets0/pcbdes/design/t412/p33.JPG">
+                    <p>Design rules check (DRC) can be done with this utility.</p><img src="Assets0/pcbdes/design/t412/p34.JPG">
+                    <p>DRC finished with a courtyard overlap warning. Part spacing is checked and can be ignored.</p><img src="Assets0/pcbdes/design/t412/p35.JPG">
+                    <p>Gerber files are plotted with File>>Plot.</p><img src="Assets0/pcbdes/design/t412/p36.JPG">
+                    <p>Gerber files are plotted. Only the front copper and edge cuts are needed.</p><img src="Assets0/pcbdes/design/t412/p37.JPG">
+                    <a href="Assets0/pcbdes/design/t412/HelloT412.zip" download >Download Kicad files</a>
+                    <br><hr><br>
+                    <h3 id="kflatcam">Toolpath generation with Flatcam and milling</h3>
+                    <p>This is Flatcam.</p><img src="Assets0/pcbdes/cam/t412/c1.JPG">
+                    <p>The Gerber files generated are opened.</p><img src="Assets0/pcbdes/cam/t412/c2.JPG">
+                    <p>This is the Gerber files shown.</p><img src="Assets0/pcbdes/cam/t412/c3.JPG">
+                    <p>Isolation milling parameters are set.</p><img src="Assets0/pcbdes/cam/t412/c4.JPG">
+                    <p>Board cut-out parameters are set.</p><img src="Assets0/pcbdes/cam/t412/c5.JPG">
+                    <p>This is the resulting geometries.</p><img src="Assets0/pcbdes/cam/t412/c6.JPG">
+                    <p>"ext" is used in the command line to generate a geometry with only the board outline cut.</p><img src="Assets0/pcbdes/cam/t412/c7.JPG">
+                    <p>The new geometry is created.</p><img src="Assets0/pcbdes/cam/t412/c8.JPG">
+                    <p>The extra geometry is deleted.</p><img src="Assets0/pcbdes/cam/t412/c9.JPG">
+                    <p>The correct geometry is now shown.</p><img src="Assets0/pcbdes/cam/t412/c10.JPG">
+                    <p>Toolpaths for the isolation milling is generated.</p><img src="Assets0/pcbdes/cam/t412/c11.JPG">
+                    <p>The parameters for board cut-out are set. There are multiple depth cuts used.</p><img src="Assets0/pcbdes/cam/t412/c12.JPG">
+                    <p>The toolpaths are exported.</p><img src="Assets0/pcbdes/cam/t412/c13.JPG">
+                    <br><hr><br>
+                    <h3>Pcb milling</h3>
+                    <p>This is the PCB after milling and after it has been cleaned up.</p><img src="Assets0/pcbdes/milling/412/IMG_20211115_151308.jpg">
+                    <p>This is the PCB with components soldered on.</p><img src="Assets0/pcbdes/milling/412/IMG_20211216_163154.jpg">
+                    <br><hr><br>
+
                 </div>
             </div>
         <footer id="footer">

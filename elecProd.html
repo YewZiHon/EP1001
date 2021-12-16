@@ -4,9 +4,9 @@
         <title>Yew Zi Hon | Electronics Production</title>
         <link rel="stylesheet" type="text/css" href="styles/style.css"/>
         <link rel="preconnect" href="https://fonts.gstatic.com"><!-- adding google fonts-->
-        <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Patrick+Hand&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Rubik:wght@300&display=swap" rel="stylesheet">
         <link href="styles/fontawesome/css/all.css" rel="stylesheet">
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
     <script>
     
@@ -40,8 +40,110 @@
                 
                 <div id="main"><br><br>
                     <h1>Electronics Production</h1><br>
-                    <p>
+                    <p>In this section, I will show how printed circuit boards (PCBs) can be prototyped at the fablab. PCBs can be made by first milling the copper traces, then soldering the components on the board.
                     </p><br>
+                    <ul>ISP programmer:
+                        <li><a href="#cam">Toolpath generation</a></li>
+                        <li><a href="#mill">PCB milling</a></li>
+                        <li><a href="#solder">Populating the PCB</a></li>
+                        <li><a href="#prgm">Programming the ISP programmer</a></li>
+                        <li><a href="#wire">Programming cable</a></li><br>
+                        FTDI Board:
+                        <li><a href="#ftdi">FTDI board manufacturing</a></li>
+                    </ul>
+                    <br><hr><br>
+                    <h3 id="cam">Toolpath generation</h3>
+                    <p>Mods is opened. The menu can be opened by right clicking</p><img src="Assets0/pcbprod/camMilling/isp/m1.JPG">
+                    <p>Under programs, there are server programs.</p><img src="Assets0/pcbprod/camMilling/isp/m2.JPG">
+                    <p>PCB milling toolpath generation is under server programs, mill 2D PCB PNG/SVG.</p><img src="Assets0/pcbprod/camMilling/isp/m3.JPG">
+                    <p>The PNG file can be loaded with this module. The DPI is read automatically.</p><img src="Assets0/pcbprod/camMilling/isp/m4.JPG">
+                    <p>Mill traces preset is selected.</p><img src="Assets0/pcbprod/camMilling/isp/m5.JPG">
+                    <p>This is the calculated toolpath.</p><img src="Assets0/pcbprod/camMilling/isp/m6.JPG">
+                    <p>Fot milling the outline, the mill outline preset is used the cut depth is changed to 0.4mm.</p><img src="Assets0/pcbprod/camMilling/isp/m7.JPG">
+                    <p>This is the resulting toolpath for the board cutout.</p><img src="Assets0/pcbprod/camMilling/isp/m8.JPG">
+                    <a href="Assets0/pcbprod/camMilling/isp/isp_toolpath.zip" download >Download toolpath files</a>
+                    <br><hr><br>
+                    <h3 id="mill">PCB milling</h3>
+                    <p>The PCB start with a copper coated phenolic paper board, called FR1.</p><img src="Assets0/pcbprod/camMilling/isp/a1.jpg">
+                    <p>This is the endmill used to mill the PCB, It is a 0.1mm 10deg engraving bit.</p><img src="Assets0/pcbprod/camMilling/isp/a2.jpg">
+                    <p>The toolpath is loaded into the CNC machine control software, the toolpath is shown.</p><img src="Assets0/pcbprod/camMilling/isp/a3.jpg">
+                    <p>The milling has started, the endmill has started cutting the copper, this is called isolation milling.</p><img src="Assets0/pcbprod/camMilling/isp/a4.jpg">
+                    <video autoplay muted loop width=100%><source src="Assets0/pcbprod/camMilling/isp/a0.mp4" type="video/mp4"></video>
+                    <p>Copper is machined to leave the desired traces.</p><img src="Assets0/pcbprod/camMilling/isp/a5.jpg">
+                    <p>Dust created by the milling is vacuumed.</p><img src="Assets0/pcbprod/camMilling/isp/a6.jpg">
+                    <p>This is the endmill used for cuting out the board, it is a 0.8mm flat endmill. It has been cut shorter so that it will be more ridgid and have a smaller chance of breaking off.</p><img src="Assets0/pcbprod/camMilling/isp/a7.jpg">
+                    <p>The CNC has started cutting out the board cutout.</p><img src="Assets0/pcbprod/camMilling/isp/a8.jpg">
+                    <p>Cutting out the board outline creates a lot of dust.</p><img src="Assets0/pcbprod/camMilling/isp/a9.jpg">
+                    <p>The board cutout is done.</p><img src="Assets0/pcbprod/camMilling/isp/a10.jpg">
+                    <p>This is what the PCB looks like before it is removed from the CNC.</p><img src="Assets0/pcbprod/camMilling/isp/a11.jpg">
+                    <p>The burrs are removed.</p><img src="Assets0/pcbprod/camMilling/isp/a12.jpg">
+                    <br><hr><br>
+                    <h3 id="solder">Populating the PCB</h3>
+                    <p>A knife is used to scrape off the excess copper so that soldering would be easier.</p><img src="Assets0/pcbprod/soldering/s1.jpg">
+                    <p>This is the result with the dead copper removed.</p><img src="Assets0/pcbprod/soldering/s2.jpg">
+                    <p>The copper oxide formed on the copper is sanded off, being careful to not destroy any thin trace on the PCB. </p><img src="Assets0/pcbprod/soldering/s3.jpg">
+                    <p>The result is shiny copper traces that solder will better stick to.</p><img src="Assets0/pcbprod/soldering/s4.jpg">
+                    <p>Copper dust generated by sanding is removed with a copper brush to prenevt them form shorting out the traces.</p><img src="Assets0/pcbprod/soldering/s5.jpg">
+                    <p>The result is a PCB with tracks clearly separated.</p><img src="Assets0/pcbprod/soldering/s6.jpg">
+                    <p>The colour and polarity of the SMD LEDs can be determined with the diode test function of a multimeter.</p><img src="Assets0/pcbprod/soldering/s7.jpg">
+                    <p>The red LED is tested.</p><img src="Assets0/pcbprod/soldering/s8.jpg">
+                    <p>The polarity of the LED can also be determined by the markings on the back of the LED and the green arrow at the top of the LED contact.</p><img src="Assets0/pcbprod/soldering/s9.jpg">
+                    <p>Resistors are labelled with a code and diode polarity is barked with a line. ICs are marked at the top. Ceramic capacitors are usally not marked.</p><img src="Assets0/pcbprod/soldering/s10.jpg">
+                    <p>Solder is first place on one of the pads.</p><img src="Assets0/pcbprod/soldering/s11.jpg">
+                    <p>The component is held with tweezers at the pads and one pad is soldered.</p><img src="Assets0/pcbprod/soldering/s12.jpg">
+                    <p>The second pad is soldered.</p><img src="Assets0/pcbprod/soldering/s13.jpg">
+                    <p>The remaining components are soldered.</p><img src="Assets0/pcbprod/soldering/s14.jpg">
+                    <p>Low components are soldered first. The header pin is soldered last.</p><img src="Assets0/pcbprod/soldering/s15.jpg">
+                    <p>Too much flux was used. The solder used was a lead-free solder with a higher melting point that did not wet out the pad too well. The traces got burnt and peeled away from the PCB because the temperature was too high, and I soldered for too long. The PCB did not end up working.</p><img src="Assets0/pcbprod/soldering/s16.jpg">
+                    <p>This is the second attempt using 60/40 solder, a lot less flux and a temperature controlled soldering iron.</p><img src="Assets0/pcbprod/soldering/s17.jpg">
+                    <br><hr><br>
+                    <h3 id="prgm">Programming the ISP programmer</h3>
+                    <p>After the GNU toolchains are downloaded and installed, command prompt is opened.</p><img src="Assets0/pcbprod/prgm/0.JPG">
+                    <p>The directory with the build files is navigated to.</p><img src="Assets0/pcbprod/prgm/1.JPG">
+                    <p>Drivers are installed for the ISP programmer.</p><img src="Assets0/pcbprod/prgm/2.JPG">
+                    <p>The connection to the programmer is tested.</p><img src="Assets0/pcbprod/prgm/3.JPG">
+                    <p>The directory is chosen.</p><img src="Assets0/pcbprod/prgm/4.JPG">
+                    <p>And the flash is written to the programmer.</p><img src="Assets0/pcbprod/prgm/5.JPG">
+                    <p>The flash programming is successful.</p><img src="Assets0/pcbprod/prgm/6.JPG">
+                    <p>The fuses are burnt to the programmer.</p><img src="Assets0/pcbprod/prgm/7.JPG">
+                    <p>The burnt fuse values are the values defined in the build file.</p><img src="Assets0/pcbprod/prgm/8.JPG">
+                    <p>The connection to the USBtiny programmer is checked in device manager.</p><img src="Assets0/pcbprod/prgm/9.JPG">
+                    <p>The reset pin is disabled.</p><img src="Assets0/pcbprod/prgm/10.JPG">
+                    <p>Reset is disabled successfully and the new fuse value is written.</p><img src="Assets0/pcbprod/prgm/11.JPG">
+                    <br><hr><br>
+                    <h3 id="wire">Programming cable</h3>
+                    <p>A ribbon cable and two insulation displacing connectors (IDC) connectors are needed.</p><img src="Assets0/pcbprod/camMilling/isp/b1.jpg">
+                    <p>The 10 way ribbon cable is cut so that it is a 6 way ribbon cable.</p><img src="Assets0/pcbprod/camMilling/isp/b2.jpg">
+                    <p>The ribbon cable is inserted into the IDC connector.</p><img src="Assets0/pcbprod/camMilling/isp/b3.jpg">
+                    <p>The IDC connector is clamped onto the cable using a vice.</p><img src="Assets0/pcbprod/camMilling/isp/b4.jpg">
+                    <p>The connectors are attached at both ends.</p><img src="Assets0/pcbprod/camMilling/isp/b5.jpg">
+                    <p>The strain relief is clipped on.</p><img src="Assets0/pcbprod/camMilling/isp/b6.jpg">
+                    <br><hr><br>
+                    <h2 id="ftdi">FTDI board</h2>
+                    <p>The FTDI board is used to as a UART to USB adaptor and can also program UPDI microcontrollers.</p>
+                    <br><hr><br>
+                    <h3>Toolpath generation</h3>
+                    <p>This is Mods. The toolpath will be generated using this utility.</p><img src="Assets0/pcbprod/camMilling/ch340/m1.JPG">
+                    <p>Right click opens up a menu. Programs is selected.</p><img src="Assets0/pcbprod/camMilling/ch340/m2.JPG">
+                    <p>Open server program is selected.</p><img src="Assets0/pcbprod/camMilling/ch340/m3.JPG">
+                    <p>Mill 2D PCB PNG is selected.</p><img src="Assets0/pcbprod/camMilling/ch340/m4.JPG">
+                    <p>This is the opened program.</p><img src="Assets0/pcbprod/camMilling/ch340/m5.JPG">
+                    <p>This module loaded the PNG files.</p><img src="Assets0/pcbprod/camMilling/ch340/m6.JPG">
+                    <p>The traces file is loaded.</p><img src="Assets0/pcbprod/camMilling/ch340/m7.JPG">
+                    <p>The default profile is selected for traces.</p><img src="Assets0/pcbprod/camMilling/ch340/m8.JPG">
+                    <p>This is the generated toolpath.</p><img src="Assets0/pcbprod/camMilling/ch340/m9.JPG">
+                    <p>The PNG file for the cutout is loaded.</p><img src="Assets0/pcbprod/camMilling/ch340/m10.JPG">
+                    <p>The default for mill outline is selected. The cut depth is increased to 0.4mm.</p><img src="Assets0/pcbprod/camMilling/ch340/m11.JPG">
+                    <p>This is the toolpath for the board cutout.</p><img src="Assets0/pcbprod/camMilling/ch340/m12.JPG">
+                    <a href="Assets0/pcbprod/camMilling/ch340/ch340_toolpath.zip" download >Download toolpath files</a>
+                    <br><hr><br>
+                    <h3>Board milling</h3>
+                    <p>The toolpath is loaded in the CNC control software.</p><img src="Assets0/pcbprod/camMilling/ch340/a0.jpg">
+                    <p>The traces are being milled on the CNC.</p><img src="Assets0/pcbprod/camMilling/ch340/a1.jpg">
+                    <p>The board outline being cut.</p><img src="Assets0/pcbprod/camMilling/ch340/a3.jpg">
+                    <p>The board outline is cut after the traces.</p><img src="Assets0/pcbprod/camMilling/ch340/a2.jpg">
+                    <p>This is the milled serial to UPDI adaptor for UPDI microcontrollers.</p><img src="Assets0/pcbprod/camMilling/ch340/a4.jpg">
+                    <p>This is the soldered and completed FTDI programmer with the UPDI adaptor.</p><img src="Assets0/pcbprod/soldering/f1.jpg">
                     <br><hr><br>
                 </div>
             </div>
