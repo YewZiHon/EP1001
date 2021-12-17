@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>Yew Zi Hon | About</title>
+        <link rel="stylesheet" type="text/css" href="styles/style.css"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"><!-- adding google fonts-->
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Rubik:wght@300&display=swap" rel="stylesheet">
+        <link href="styles/fontawesome/css/all.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+    <script>
+    
+    
+    </script>
+	<body>
+        <div id="container">
+            <div id= "header">
+                <h1>About</h1>
+            </div>
+            <div>
+                <input type="checkbox" id="btn" hidden>
+                <label for="btn" id="icon">
+                <i class="fas fa-3x fa-bars" style="padding-left:3px;padding-top:1px;"></i></label>
+                <nav id="nav">
+                    <ul id="navlinks">
+                        <li class="firstLink"><a href="index.html"><h1> Home</h1></a><br></li>
+                        <li><a href="about.html"><h1> About</h1></a><br></li>
+                        <li><a href="elecProd.html"><h1> Electronics Production</h1></a><br></li>
+                        <li><a href="elecDes.html"><h1> Electronics Design</h1></a><br></li>
+                        <li><a href="2Dcnc.html"><h1>2D CNC</h1></a><br></li>
+                        <li><a href="embProg.html"><h1> Embedded Programming</h1></a><br></li>
+                        <li><a href="3Dcnc.html"><h1 class="currentLink"> 3D CNC</h1></a><br></li>
+                        <li><a href="moldCast.html"><h1> Molding and Casting</h1></a><br></li>
+                        <li><a href="interface.html"><h1> Interface and applications programming</h1></a><br></li>
+                        <li><a href="finalPro.html"><h1> Final Project</h1></a><br></li>
+                    </ul>
+                </nav>
+             </div>
+            <div id="content">
+                
+                <div id="main"><br><br>
+                    <h1>3D CNC</h1><br>
+                    <p>
+                        3D machining can create complex parts with curved geometry.
+                    </p>
+                    <ul>
+                        <li><a href="#cad">CAD design</a></li>
+                        <li><a href="#cam">CAM programming</a></li>
+                        <li><a href="#cut1">Milling attempt 1</a></li>not checked
+                        <li><a href="#cut2">Milling attempt 2</a></li>not done
+                    </ul>
+                    <br><hr><br>
+                    <h3 id="cad">CAD design</h3>
+                    <p>This is what the final CAD design will look like.</p><img src="Assets0/moldcast/cad/c8.JPG">
+                    <p>A quarter of a circle is sketched this will be part of the final casting.</p><img src="Assets0/moldcast/cad/c1.JPG">
+                    <p>The bounding box to hold the silicone is sketched.</p><img src="Assets0/moldcast/cad/c2.JPG">
+                    <p>The bounding box is extruded.</p><img src="Assets0/moldcast/cad/c3.JPG">
+                    <p>The bottom of the box is extruded.</p><img src="Assets0/moldcast/cad/c4.JPG">
+                    <p>The quarter circle is half revolved to form a quarter sphere.</p><img src="Assets0/moldcast/cad/c5.JPG">
+                    <p>The corners of the box are filleted because the endmill cannot cut sharp corners.</p><img src="Assets0/moldcast/cad/c6.JPG">
+                    <p>The semicircle is extruded to form half a cylinder.</p><img src="Assets0/moldcast/cad/c7.JPG">
+                    <p>This is the final result.</p><img src="Assets0/moldcast/cad/c8.JPG">
+                    <p></p><img src="Assets0/moldcast/cad/c9.JPG">
+                    <a href="Assets0/moldcast/cad/mold.step" download >Download 3D files</a>
+                    <br><hr><br>
+                    <h3 id="cam">CAM programming</h3>
+                    <p>The step file is merged.</p><img src="Assets0/moldcast/3dcam/m1.jpg">
+                    <p>A new machine group for CNC milling is created.</p><img src="Assets0/moldcast/3dcam/m2.jpg">
+                    <p>The stock is set up with the dimensions of the stock.</p><img src="Assets0/moldcast/3dcam/m3.JPG">
+                    <p>The 3D pocketing operation is selected.</p><img src="Assets0/moldcast/3dcam/m4.JPG">
+                    <p>The features to machine to are selected.</p><img src="Assets0/moldcast/3dcam/m4.1.JPG">
+                    <p>The a containment boundary is added.</p><img src="Assets0/moldcast/3dcam/m4.2.JPG">
+                    <p>The outer boundary is selected. The endmill will be constrained within this boundary when under the clearance height.</p><img src="Assets0/moldcast/3dcam/m4.3.JPG">
+                    <p>A new tool needs to be created.</p><img src="Assets0/moldcast/3dcam/m5.JPG">
+                    <p>Flat endmill is selected.</p><img src="Assets0/moldcast/3dcam/m6.JPG">
+                    <p>The endmill properties are defined.</p><img src="Assets0/moldcast/3dcam/m7.JPG">
+                    <p>Cut parameters such as feedrate are defined.</p><img src="Assets0/moldcast/3dcam/m8.JPG">
+                    <p>The new tool has been created successfully.</p><img src="Assets0/moldcast/3dcam/m9.JPG">
+                    <p>Rough pocketing clearance and stock to leave are defined here.</p><img src="Assets0/moldcast/3dcam/m10.JPG">
+                    <p>The stepdown height is set here.</p><img src="Assets0/moldcast/3dcam/m11.JPG">
+                    <p>The pocketing method and stepover are defined here.</p><img src="Assets0/moldcast/3dcam/m12.JPG">
+                    <p>This is the toolpath generated.</p><img src="Assets0/moldcast/3dcam/m13.JPG">
+                    <p>There is 1mm of stock left in the Z axis.</p><img src="Assets0/moldcast/3dcam/m14.JPG">
+                    <p>Horizontal area finishing is used to cut the bottom.</p><img src="Assets0/moldcast/3dcam/m15.JPG">
+                    <p>The machining geometry is selected.</p><img src="Assets0/moldcast/3dcam/m16.JPG">
+                    <p>The bottom flat surface is selected.</p><img src="Assets0/moldcast/3dcam/m17.JPG">
+                    <p>Cutter compensation is set to inside the profile.</p><img src="Assets0/moldcast/3dcam/m18.JPG">
+                    <p>A containment boundary is defined so that only the flat area is machined.</p><img src="Assets0/moldcast/3dcam/m19.JPG">
+                    <p>Number of depth cuts is set to 1 and stepover is set.</p><img src="Assets0/moldcast/3dcam/m20.JPG">
+                    <p>Entry is set to a steep ramp.</p><img src="Assets0/moldcast/3dcam/m21.JPG">
+                    <p>Clearances are set.</p><img src="Assets0/moldcast/3dcam/m22.JPG">
+                    <p>This is the toolpath.</p><img src="Assets0/moldcast/3dcam/m23.JPG">
+                    <p>This toolpath cuts to the bottom surface.</p><img src="Assets0/moldcast/3dcam/m24.JPG">
+                    <p>This video shows the pocket roughing and bottom finishing./p><video autoplay muted loop width=100%><source src="Assets0/moldcast/3dcam/b1.mp4" type="video/mp4"></video>
+                    <p>A stock model is created to better visualize the stock remaining.</p><img src="Assets0/moldcast/3dcam/m25.JPG">
+                    <p>This is the menu for creating a stock model.</p><img src="Assets0/moldcast/3dcam/m26.JPG">
+                    <p>The stock dimensions are loaded with stock setup.</p><img src="Assets0/moldcast/3dcam/m27.JPG">
+                    <p></p><img src="Assets0/moldcast/3dcam/m28.JPG">
+                    <p>The source operations are selected, all previous operations are selected.</p><img src="Assets0/moldcast/3dcam/m29.JPG">
+                    <p>The created stock model shows that only the curved surfaces needs to be cut.</p><img src="Assets0/moldcast/3dcam/m30.JPG">
+                    <p>Scallop is used to cut the curved surface.</p><img src="Assets0/moldcast/3dcam/m31.JPG">
+                    <p>The machining geometry is selected.</p><img src="Assets0/moldcast/3dcam/m32.JPG">
+                    <p>The curved surfaces are selected.</p><img src="Assets0/moldcast/3dcam/m33.JPG">
+                    <p>Stepover is set to 0.1mm.</p><img src="Assets0/moldcast/3dcam/m34.JPG">
+                    <p>Clearances are set.</p><img src="Assets0/moldcast/3dcam/m35.JPG">
+                    <p>This is the toolpath.</p><img src="Assets0/moldcast/3dcam/m36.JPG">
+                    <p>The toolpath cuts to the bottom and removes the remaining material.</p><img src="Assets0/moldcast/3dcam/m37.JPG">
+                    <p>This is the back plotted scallop operation.</p><video autoplay muted loop width=100%><source src="Assets0/moldcast/3dcam/b2.mp4" type="video/mp4"></video>
+                    <p>This is the simulator.</p><img src="Assets0/moldcast/3dcam/m39.JPG">
+                    <p>It can be seen that it cuts as expected.</p><video autoplay muted loop width=100%><source src="Assets0/moldcast/3dcam/b3.mp4" type="video/mp4"></video>
+                    <p>This is the toolpath of all operations.</p><img src="Assets0/moldcast/3dcam/m40.JPG">
+
+                    <br><hr><br>
+                    <h3 id="cut1">Milling attempt 1</h3>
+                    <p>This is Mr Steven's demo milling of the ridgid foam.</p><img src="Assets0/moldcast/attempt1/demo_mill.jpg">
+                    <p>The foam block is stuck on to the wasteboard with double sided tape.</p><img src="Assets0/moldcast/attempt1/stuckoncnc.jpg">
+                    <p>The workpiece zero point is set at the top and center of the material.</p><img src="Assets0/moldcast/attempt1/zeropoint_setting.jpg">
+                    <p>The milling has started.</p><img src="Assets0/moldcast/attempt1/millingearly.jpg">
+                    <p>The roucg pocketing is underway.</p><img src="Assets0/moldcast/attempt1/moremilled.jpg">
+                    <p>The toolpath is shown on the CNC software.</p><img src="Assets0/moldcast/attempt1/path_Software.jpg">
+                    <p>This is a video of the milling process.</p><video autoplay muted loop width=100%><source src="Assets0/moldcast/attempt1/milling.mp4" type="video/mp4"></video>
+                    <h3>End result</h3><br>
+                    <p>This is the end result.</p><img src="Assets0/moldcast/attempt1/f1.jpg">
+                    <p>The surface finish is rough because of the material used.</p><img src="Assets0/moldcast/attempt1/f2.jpg">
+                    <p></p><img src="Assets0/moldcast/attempt1/f3.jpg">
+                    <p>The curved surface gets lower as the cut goes on.</p><img src="Assets0/moldcast/attempt1/f4.jpg">
+                    <p>The cut drifts lower as the cut goes on.</p><img src="Assets0/moldcast/attempt1/f5.jpg">
+                    <p>The cut drifting could be because the Z axis skipped steps or the endmill losening over the cut. It is more probable that the endmill was losening because lost steps will ussally appear as a large step instead of a gradual decline. More of the endmill can be clamped to prevent this, using a longer endmill that can be clamped further will also prevent this.</p>
+                    <br><hr><br>
+                </div>
+            </div>
+        <footer id="footer">
+            copyright &copy; 2021 Yew Zi Hon
+        
+        </footer>
+        </div>
+	</body>
+</html>
