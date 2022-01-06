@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <title>Yew Zi Hon | About</title>
+        <title>Yew Zi Hon | Embedded Programming</title>
         <link rel="stylesheet" type="text/css" href="styles/style.css"/>
         <link rel="preconnect" href="https://fonts.gstatic.com"><!-- adding google fonts-->
         <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Rubik:wght@300&display=swap" rel="stylesheet">
@@ -44,21 +44,65 @@
                         This page documents the programming of the attiny412 microcontroller.
                     </p>
                     <ul>
-                        <li><a href="#cblink">Button and LED</a></li>not done
-                        <li><a href="#datasheet">attiny412 datasheet</a></li>not done
-                        <li><a href="#regs">attiny412 registers</a></li>not done
-                        <li><a href="#regmanip">Register Manipulation</a></li>not done
+                        <li><a href="#cblink">Button and LED</a></li>not checked
+                        <li><a href="#datasheet">attiny412 datasheet</a></li>not checked
+                        <li><a href="#regs">attiny412 registers</a></li>not checked
+                        <li><a href="#regmanip">Register Manipulation</a></li>not checked
                         <li><a href="#iassm">Inline assembly</a></li>not done
                         <li><a href="#assm">Just assembly</a></li>not done
                     </ul>
                     <br><hr><br>
                     <h3 id="cblink">Button and LED</h3>
-                    <p></p><img src="Assets0/embprog/">
+                    <p>This is the main loop for processing the fading LED. fading the led is done with analohWrite.</p><img src="Assets0/embprog/cblink/412c1.JPG">
+                    <p>This is the code that handles button press behaviors and debouncing.</p><img src="Assets0/embprog/cblink/412c2.JPG">
+                    <p>This is the code running on the attiny412.</p><video autoplay muted loop width=100%><source src="Assets0/embprog/cblink/412cBlink.mp4" type="video/mp4"></video>
+                    <p>This is the code running on the attiny85.</p><video autoplay muted loop width=100%><source src="Assets0/embprog/cblink/cblinkt85.mp4" type="video/mp4"></video>
+                    <a href="Assets0/embprog/cblink/HELLOt85.zip" download >Download source code attiny85</a>
+                    <a href="Assets0/embprog/cblink/HELLO412.zip" download >Download source code attiny412</a>
+                    <br><hr><br>
                     <h3 id="datasheet">attiny412 datasheet</h3>
+                    <p>This is the datasheet for the attiny412 microcontroller.</p><img src="Assets0/embprog/datasheet/d1.JPG">
+                    <p>These are the specifications.</p><img src="Assets0/embprog/datasheet/d2.JPG">
+                    <p>This is the block diagram. It shows how peripherials are connected to each other through the bus.</p><img src="Assets0/embprog/datasheet/d3.JPG">
+                    <p>This is the pinout.</p><img src="Assets0/embprog/datasheet/d4.JPG">
+                    <p>Some pins can serve multiple functions.</p><img src="Assets0/embprog/datasheet/d5.JPG">
+                    <p>This is the internal memory address mapping.</p><img src="Assets0/embprog/datasheet/d6.JPG">
+                    <p>This page of the datasheet explains the I/O port.</p><img src="Assets0/embprog/datasheet/d7.JPG">
+                    <p>This is the internal wiring of the I/O port. It shows how the port connects to the registers.</p><img src="Assets0/embprog/datasheet/d8.JPG">
                     <h3 id="regs">attiny412 registers</h3>
+                    <p>This is information on the I/O registers.</p><img src="Assets0/embprog/datasheet/r1.JPG">
+                    <p>This is the address map for the different peripherials.</p><img src="Assets0/embprog/datasheet/r2.JPG">
+                    <p>This is the instruction set.</p><img src="Assets0/embprog/datasheet/r3.JPG">
+                    <p>The BRNE instruction will branch if the register is not equal to zero. and will take 2 cycles when branching and 1 cycle when not branching.</p><img src="Assets0/embprog/datasheet/r4.JPG">
+                    <p>This is the DEC instruction. It will decrement the value in a register by 1.</p><img src="Assets0/embprog/datasheet/r5.JPG">
+                    <p>The PORT register is mapped to the VPORT register.</p><img src="Assets0/embprog/datasheet/r6.JPG">
+                    <p>This are the different PORT registers.</p><img src="Assets0/embprog/datasheet/r7.JPG">
+                    <p>And this are the VPORT registers. Only some registers are mapped, the data diretion register (DIR), the output register, input register and interupt flags register.</p><img src="Assets0/embprog/datasheet/r8.JPG">
+                    <p>This is the bitmapping for the DIR register of VPORT.</p><img src="Assets0/embprog/datasheet/r9.JPG">
+                    <p>This is the bitmapping for the OUT register of VPORT.</p><img src="Assets0/embprog/datasheet/r10.JPG">
+                    <p>This is the bitmapping for the IN register of VPORT.</p><img src="Assets0/embprog/datasheet/r11.JPG">
+                    <p>By writing a bit high in the IN register, the bit in the OUT register will be toggled.</p><img src="Assets0/embprog/datasheet/r12.JPG">
                     <h3 id="regmanip">Register Manipulation</h3>
+                    <p>Port manipulation can write to pins in just a few instructions taking less than a microsecond while digitalWrite takes a few microseconds.</p><img src="Assets0/embprog/portmanip/src.JPG">
+                    <p> The code for digitalWrite is more complicated than code for direct port manipulation.</p><img src="Assets0/embprog/portmanip/src.JPG">
+                    <p>PORTA.DIR is used to change the DIR register. The bit is set high for output.</p><img src="Assets0/embprog/portmanip/d1.JPG">
+                    <p>PORTA.OUT is used to change the OUT register.</p><img src="Assets0/embprog/portmanip/d2.JPG">
+                    <p>This is the code to blink an LED.</p><img src="Assets0/embprog/portmanip/c.JPG">
+                    <p>This is the program running on the hello board.</p><video autoplay muted loop width=100%><source src="Assets0/embprog/portmanip/blinkpmanip.mp4" type="video/mp4"></video>
+                    <a href="Assets0/embprog/portmanip/regmanip.zip" download >Download source code</a>
+                    <br><hr><br>
                     <h3 id="iassm">Inline assembly</h3>
+                    <p>This is the code to blink an LED.</p><img src="Assets0/embprog/inlineassm/c.JPG">
+                    >>explain assembly
+                    <p>This is the program running on the hello board.</p><video autoplay muted loop width=100%><source src="Assets0/embprog/inlineassm/inlineassm.mp4" type="video/mp4"></video>
+                    <a href="Assets0/embprog/inlineassm/sbiCBI.zip" download >Download source code</a>
+                    <br><hr><br>
                     <h3 id="assm">Just assembly</h3>
+                    <p>This is the code to blink an LED.</p><img src="Assets0/embprog/assm/c.JPG">
+                    >>explain assembly
+                    <p>This is the program running on the hello board.</p><video autoplay muted loop width=100%><source src="Assets0/embprog/assm/assm.mp4" type="video/mp4"></video>
+                    <a href="Assets0/embprog/assm/assm.zip" download >Download source code</a>
+                    <br><hr><br>
                 </div>
             </div>
         <footer id="footer">
