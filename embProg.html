@@ -44,16 +44,16 @@
                         This page documents the programming of the attiny412 microcontroller.
                     </p>
                     <ul>
-                        <li><a href="#cblink">Button and LED</a></li>not checked
-                        <li><a href="#datasheet">attiny412 datasheet</a></li>not checked
-                        <li><a href="#regs">attiny412 registers</a></li>not checked
-                        <li><a href="#regmanip">Register Manipulation</a></li>not checked
-                        <li><a href="#iassm">Inline assembly</a></li>not done
-                        <li><a href="#assm">Just assembly</a></li>not done
+                        <li><a href="#cblink">Button and LED</a></li>
+                        <li><a href="#datasheet">attiny412 datasheet</a></li>
+                        <li><a href="#regs">attiny412 registers</a></li>
+                        <li><a href="#regmanip">Register Manipulation</a></li>
+                        <li><a href="#iassm">Inline assembly</a></li>
+                        <li><a href="#assm">Just assembly</a></li>
                     </ul>
                     <br><hr><br>
                     <h3 id="cblink">Button and LED</h3>
-                    <p>This is the main loop for processing the fading LED. fading the led is done with analohWrite.</p><img src="Assets0/embprog/cblink/412c1.JPG">
+                    <p>This is the main loop for processing the fading LED. fading the led is done with analogWrite.</p><img src="Assets0/embprog/cblink/412c1.JPG">
                     <p>This is the code that handles button press behaviors and debouncing.</p><img src="Assets0/embprog/cblink/412c2.JPG">
                     <p>This is the code running on the attiny412.</p><video autoplay muted loop width=100%><source src="Assets0/embprog/cblink/412cBlink.mp4" type="video/mp4"></video>
                     <p>This is the code running on the attiny85.</p><video autoplay muted loop width=100%><source src="Assets0/embprog/cblink/cblinkt85.mp4" type="video/mp4"></video>
@@ -72,13 +72,13 @@
                     <br><hr><br>
                     <h3 id="regs">attiny412 registers</h3>
                     <p>This is information on the I/O registers.</p><img src="Assets0/embprog/datasheet/r1.JPG">
-                    <p>This is the address map for the different peripherials.</p><img src="Assets0/embprog/datasheet/r2.JPG">
+                    <p>This is the address map for the different peripherals.</p><img src="Assets0/embprog/datasheet/r2.JPG">
                     <p>This is the instruction set.</p><img src="Assets0/embprog/datasheet/r3.JPG">
                     <p>The BRNE instruction will branch if the register is not equal to zero. and will take 2 cycles when branching and 1 cycle when not branching.</p><img src="Assets0/embprog/datasheet/r4.JPG">
                     <p>This is the DEC instruction. It will decrement the value in a register by 1.</p><img src="Assets0/embprog/datasheet/r5.JPG">
                     <p>The PORT register is mapped to the VPORT register.</p><img src="Assets0/embprog/datasheet/r6.JPG">
                     <p>This are the different PORT registers.</p><img src="Assets0/embprog/datasheet/r7.JPG">
-                    <p>And this are the VPORT registers. Only some registers are mapped, the data diretion register (DIR), the output register, input register and interupt flags register.</p><img src="Assets0/embprog/datasheet/r8.JPG">
+                    <p>And this are the VPORT registers. Only some registers are mapped, the data direction register (DIR), the output register, input register and interrupt flags register.</p><img src="Assets0/embprog/datasheet/r8.JPG">
                     <p>This is the bitmapping for the DIR register of VPORT.</p><img src="Assets0/embprog/datasheet/r9.JPG">
                     <p>This is the bitmapping for the OUT register of VPORT.</p><img src="Assets0/embprog/datasheet/r10.JPG">
                     <p>This is the bitmapping for the IN register of VPORT.</p><img src="Assets0/embprog/datasheet/r11.JPG">
@@ -94,17 +94,34 @@
                     <br><hr><br>
                     <h3 id="iassm">Inline assembly</h3>
                     <p>This is the code to blink an LED.</p><img src="Assets0/embprog/inlineassm/c.JPG">
-                    >>explain assembly
+                    <p>"int main()" is used instead of "void setup()" and "void loop()".</p><img src="Assets0/embprog/inlineassm/1.JPG">
+                    <p>"asm" tells the compiler that this is inline assembly. "__volatile__" tells the compiler to not optimize the delay loop.</p><img src="Assets0/embprog/inlineassm/2.JPG">
+                    <p>"sbi" is set bit, it sets a single bit in a register. In this case setting the VPORT.DIR register.</p><img src="Assets0/embprog/inlineassm/3.JPG">
+                    <p>"loop:" is the start of the program loop. When the program has finished the program will restart here.</p><img src="Assets0/embprog/inlineassm/4.JPG">
+                    <p>"ldi" is load immediate. A value is loaded inot a register.</p><img src="Assets0/embprog/inlineassm/5.JPG">
+                    <p>"delay:" marks the start of the delay loop.</p><img src="Assets0/embprog/inlineassm/6.JPG">
+                    <p>"dec" is the decrement instruction. it decrements a register by 1.</p><img src="Assets0/embprog/inlineassm/7.JPG">
+                    <p>"brne" is the branch if not equal instruction. It will jump back to "delay:" if the value in the register is not 0.</p><img src="Assets0/embprog/inlineassm/8.JPG">
+                    <p>"rjmp" is relative jump. It jumps back to the start of the program, "loop:".</p><img src="Assets0/embprog/inlineassm/9.JPG">
+                    <p>This is the clobber list. It tells the compiler the registers that are used.</p><img src="Assets0/embprog/inlineassm/10.JPG">
+                    <p>This is the compiler directive ensure that the clock speed is 4MHz. This is important because of the hardcoded delay loop.</p><img src="Assets0/embprog/inlineassm/11.JPG">
+                    <p>The delay loop works by first decrementing register 17. 0-1=255 because the register overflows. Since 255 is not 0 it will branch to "delay:". this repeats until register 17 is 0. </p><img src="Assets0/embprog/inlineassm/12.JPG">
+                    <p>This is repeated for register 18. Register 18 reaches 0 when register 17 had been decremented for total of 256*256 times.</p><img src="Assets0/embprog/inlineassm/13.JPG">
+                    <p>This is repeated for register 16. Register 16 starts from 20, so it is only decremented 20 times. When register 16 is 0, the total number of times register 17 has been decremented will be 256*256*20 times.</p><img src="Assets0/embprog/inlineassm/14.JPG">
+                    <p>"dec" takes 1 cycle and "brne" takes 2 cycles for a total of three cycles. So, the total number of cycles is 256*256*20*3=3,932,160 cycles. Close enough to the 4,000,000 cylces per second to create a delay loop of almost 1 second.</p><img src="Assets0/embprog/inlineassm/15.JPG">
                     <p>This is the program running on the hello board.</p><video autoplay muted loop width=100%><source src="Assets0/embprog/inlineassm/inlineassm.mp4" type="video/mp4"></video>
                     <a href="Assets0/embprog/inlineassm/sbiCBI.zip" download >Download source code</a>
                     <br><hr><br>
                     <h3 id="assm">Just assembly</h3>
                     <p>This is the code to blink an LED.</p><img src="Assets0/embprog/assm/c.JPG">
-                    >>explain assembly
+                    <p>".global main" is similar to "int main()" it contains the program.</p><img src="Assets0/embprog/assm/1.JPG">
+                    <p>This is the loop. Two LEDs are toggled.</p><img src="Assets0/embprog/assm/2.JPG">
+                    <p>This is the delay loop.</p><img src="Assets0/embprog/assm/3.JPG">
                     <p>This is the program running on the hello board.</p><video autoplay muted loop width=100%><source src="Assets0/embprog/assm/assm.mp4" type="video/mp4"></video>
                     <a href="Assets0/embprog/assm/assm.zip" download >Download source code</a>
                     <br><hr><br>
                 </div>
+
             </div>
         <footer id="footer">
             copyright &copy; 2021 Yew Zi Hon
