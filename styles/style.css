@@ -47,8 +47,8 @@ h1,h2,h3,h4,h5,h6{
     font-size: 27px;
 }
 #content{
-    padding-left:200px;
-    padding-right:200px;
+    padding-left:15vw;
+    padding-right:15vw;
     padding-bottom:30px;
     flex:1;
     min-height: 100%;
@@ -94,7 +94,7 @@ li{
     border-color:  black;
 }
 #btn:checked ~ #icon{
-    left: 320px;
+    left: 350px;
 }
 #btn:checked ~ #nav{
     left: 0;
@@ -102,9 +102,9 @@ li{
 #nav{
     position: fixed;
     height: 100%;
-    width: 320px;
+    width: 350px;
     overflow: hidden;
-    left: -320px;
+    left: -350px;
     transition: all 0.3s ease;
     z-index: 999;
     
