@@ -62,10 +62,6 @@
                         <li><a href="#cncm">CNC milling</a></li>done
                         <li><a href="#3dp">3D printing</a></li>done
                         <li><a href="#laser">Laser cutting</a></li>done
-                        <li><a href="#">Electronics design</a></li>
-                            <ul style="padding-left: 3vw">
-                                <li><a href=#>Block diagram</a></li>
-                            </ul>
                         <li><a href="#pcbd">Pcb design</a></li>done
                             <ul style="padding-left: 3vw">
                                 <li><a href=#srd>Shift register board design</a></li>
@@ -73,20 +69,23 @@
                                 <li><a href=#srm>Shift register board milling</a></li>
                                 <li><a href=#mcum>Microcontroller board milling</a></li>
                             </ul>
-                        <li><a href="#">Programming</a></li>
+                        <li><a href="#prgm">Programming</a></li>
                             <ul style="padding-left: 3vw">
-                                <li><a href=#>Rotory encoder programming</a></li>
-                                <li><a href=#>LCD programming</a></li>
-                                <li><a href=#>Menu navigation</a></li>
-                                <li><a href=#>Assembly triangle wave generator</a></li>
-                                <li><a href=#>UART buffering</a></li>
-                                <li><a href=#>ADSR envelope</a></li>
-                                <li><a href=#>Shift register programming</a></li>
-                                <li><a href=#>Servo timer interrupts</a></li>
+                                <li><a href=#renc>Rotory encoder programming</a></li>done
+                                <li><a href=#lcd>LCD programming</a></li>done
+                                <li><a href=#sd>SD card programming</a></li>
+                                <li><a href=#menunav>Menu navigation</a></li>done
+                                <li><a href=#mdmidi>Midi file processing</a></li>done
+                                <li><a href=#asmsynth>Assembly triangle wave generator</a></li>done
+                                <li><a href=#uart>UART buffering</a></li>done
+                                <li><a href=#adsr>ADSR envelope</a></li>
+                                <li><a href=#sr>Shift register programming</a></li>done
+                                <li><a href=#tmr1>Servo timer interrupts</a></li>done
+                                <li><a href=#bootl>Bootloader burn</a></li>done
                             </ul>
-                        <li><a href="#slide">Slide</a></li>
-                        <li><a href="#video">Video</a></li>
-                        <li><a href="#test">Testing</a></li>
+                        <li><a href="#slide">Slide</a></li>done
+                        <li><a href="#video">Video</a></li>done
+                        <li><a href="#test">Testing</a></li>done
                             <ul style="padding-left: 3vw">
                                 <li><a href=#mcAlpha>Minecraft Volume Alpha</a></li>
                                     <ul style="padding-left: 3vw">
@@ -164,6 +163,7 @@
                     <h3 id="pcbd">Pcb design</h3><br>
                     <p>This section documents printed circuit board design in kicad and milling.</p>
                         <h4 id="srd">Shift register board design</h4><br>
+                        <p></p><br>
                         <p>This is the Kicad schematic design.</p><img src="Assets0/finalpro/pcb/sr/kicad/1.JPG">
                         <p>PCB design in Kicad.</p><img src="Assets0/finalpro/pcb/sr/kicad/2.JPG">
                         <p>Front side PCB view.</p><img src="Assets0/finalpro/pcb/sr/kicad/3.JPG">
@@ -209,10 +209,65 @@
                         <br><hr><br>
                     <br><hr><br>
                     
-                    <h3 id=""></h3><br>
-                    <p></p><img src="Assets0/finalpro/">
+                    <h3 id="prgm">Programming</h3><br>
+                        <p>The LCD and rotary encoder ate wired up.</p><img src="Assets0/finalpro/Project/wiring.jpg">
+                        <h4 id="renc">Rotory encoder programming</h4><br>
+                        <p>The rotary encoder used is a pulse rotary encoder. The clock pulse is polled by the microcontroller when needed. Turning the rotary encoder scrolls the selection menu and clicking the rotary encoder selects the midi track.</p>
+                        <p>Program to read rotary encoder.</p><img src="Assets0/finalpro/programming/enc/1.JPG">
+                        <p>Endoder count printed on serial monitor.</p><video autoplay muted loop width=100%><source src="Assets0/finalpro/Project/enc.mp4" type="video/mp4"></video>
                     <br><hr><br>
-                    
+                        <h4 id="lcd">LCD programming</h4><br>
+                        <p>The LCD used is a 20x4 LCD. It communicates with the m328 through a 4 bit parallel interface.</p>
+                        <p>Modified example program.</p><img src="Assets0/finalpro/programming/lcd/1.JPG">
+                        <p>LCD hello world.</p><video autoplay muted loop width=100%><source src="Assets0/finalpro/Project/lcd.mp4" type="video/mp4"></video>
+                    <br><hr><br>
+                        <h4 id="sd">SD card programming</h4><br>
+                        <p>FatFs is used to communicate with the SD card. Fatfs is used because it can use file names longer than 8.5 characters. Limiting the file name lengths to 8 chars and a file extension made long file names hard to read. The fat FS library is used to buffer the data from the SD card in 512 byte blocks.</p>
+                        <p></p><img src="Assets0/finalpro/">
+                    <br><hr><br>
+                        <h4 id="menunav">Menu navigation</h4><br>
+                        <p>Code for menu navigation.</p><img src="Assets0/finalpro/programming/menu/1.JPG">
+                        <p>Menu displayed on LCD.</p><img src="Assets0/finalpro/Project/menu.jpg">
+                        <p>Menu navigation.</p><video autoplay muted loop width=100%><source src="Assets0/finalpro/programming/menu/menunav.mp4" type="video/mp4"></video>
+                    <br><hr><br>
+                        <h4 id="mdmidi">Midi file processing</h4><br>
+                        <p>MD_midi library is used to buffer the midi data read from the SD card. The midi used is standard midi file type 0. The type 0 midi file only has 1 track and all channel events are on that one track, making it easier to read the midi file as all the data is in a continuous ckunk. Md_midi also generates clock timings using timer 0. The clock timings is determined using the rate of the music. MD_midi generates the midi events at the right time and sends the midi data through UART at a baud rate of 19200 to the other two microcontrollers.</p>
+                        <p>Code for midi callback.</p><img src="Assets0/finalpro/programming/mdmidi/1.JPG">
+                    <br><hr><br>
+                        <h4 id="asmsynth">Assembly triangle wave generator</h4><br>
+                        <p>The ask synth library is used. It generates a polyphonic tone using triangle waves. Timer 2 is used with a prescaller of 4 to generate a interrupt at 15.6 khz. The microcontroller is programmed for up to 16 tones. Ask synth uses assembly and is programmed for the atmega328p. A speaker is used to generate the notes that could not be played by the melodica. Midi supports 128 notes and all notes can be played by the speaker. A l289 motor driver is used to drive the speaker. A second microcontroller is used because there was not enough memory and the microcontroller would reset itself.</p>
+                        <p>Test code.</p><img src="Assets0/finalpro/programming/asmsynth/1.JPG">
+                        <p>Assembly source code.</p><img src="Assets0/finalpro/programming/asmsynth/2.JPG">
+                        <p>Configurations needed to be set before compile.</p><img src="Assets0/finalpro/programming/asmsynth/3.JPG">
+                        <p>Example waveform generated by asmsynth. Source:Sezam</p><img src="Assets0/finalpro/programming/asmsynth/4.JPG">
+                        <p>Example sketch.</p><video width=100%><source src="Assets0/finalpro/Project/tetrisAsmsynthTest.mp4" type="video/mp4"></video>
+                    <br><hr><br>
+                        <h4 id="uart">UART buffering</h4><br>
+                        <p>The standard uart buffer of 64 bytes is not enough because the program is not fast enough to read the buffer before it is full.</p>
+                        <p>The standard uart buffer size is 64.</p><img src="Assets0/finalpro/programming/uart/1.JPG">
+                        <p>Recieve buffer size is increades to 256 and transmit is reduced to 16.</p><img src="Assets0/finalpro/programming/uart/1.JPG">
+                    <br><hr><br>
+                        <h4 id="adsr">ADSR envelope</h4><br>
+                        <p>An adsr envelope is used to make the notes sound more realistic. The adsr envelope use timer 0 for the clock.</p>
+                        <p></p><img src="Assets0/finalpro/">
+                    <br><hr><br>
+                        <h4 id="sr">Shift register programming</h4><br>
+                        <p>The shift register is used as the atmega328 dose not have enough pins to control 37 servos at once. The shift register converte serial data to parrallel data.</p>
+                        <p>digitalWriteFast is a macro that compiles into a single assembly instrucion.</p><img src="Assets0/finalpro/programming/sr/1.JPG">
+                        <p>Shift register test with LEDs.</p><video autoplay muted loop width=100%><source src="Assets0/finalpro/programming/shiftreg.mp4" type="video/mp4"></video>
+                    <br><hr><br>
+                        <h4 id="tmr1">Servo timer interrupts</h4><br>
+                        <p>The third microcontroller controls the servo motors. Timer 1 compare and overflow interrupts are used to generate a pulse for the servo motor. The melodica only cover notes 35 hex to 59 hex. There is a 5 A poly fuse to limit the current into the servos so that in case too many servos move at once, it would not draw too much current. This polyfuse has been accidentaly tested and verified to be working. A third microcontroller was used because the second microcontroller uses too many of it cycles inside that timer 2 interrupt vector. There are only 1024 cycles between timer 2 interrupts and it was not enough. The timer 2 interrupt took too many cycles and caused the servo timings generated by timer 1 to be inconsistent. The srevos draw the most current. A 12v 3 a wall adaptor is used to supply the power. It goes through a 5v 5a buck convertor that supplies the microcontrollers and servos.</p>
+                        <p>Timer 1 interrupts are used to drive the servos.</p><img src="Assets0/finalpro/programming/sr/2.JPG">
+                        <p>Timer 1 setup.</p><img src="Assets0/finalpro/programming/sr/3.JPG">
+                        <p>Servo test.</p><video autoplay muted loop width=100%><source src="Assets0/finalpro/programming/servo.mp4" type="video/mp4"></video>
+                    <br><hr><br>
+                        <h4 id="bootl">Bootloader burn</h4><br>
+                        <p>A bootloader is needed to program the atmega328 chip using uart. The standard programming via ISP does not. Fuses need to be set for the external crystal.</p>
+                        <p>The chip is first tested with AVRdude.</p><img src="Assets0/finalpro/programming/bootloader/avrdude.JPG">
+                        <p>Minicore is used because the standard arduino core dosent include the atmega328 chip.</p><img src="Assets0/finalpro/programming/bootloader/minicore.JPG">
+                        <p>The fuses and bootloader are burnt.</p><img src="Assets0/finalpro/programming/bootloader/bootloaderburn.JPG">
+                    <br><hr><br>
                     <h3 id=""></h3><br>
                     <p></p><img src="Assets0/finalpro/">
                     <br><hr><br>
